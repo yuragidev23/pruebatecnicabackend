@@ -29,13 +29,13 @@ public class WebSecurityConfigurerAdapter {
     public UserDetailsService inMemoryUserDetailsManager() {
         InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
         
-        // Agregar un usuario "admin" con contraseña "admin" y rol "ADMIN"
+        
         userDetailsManager.createUser(User.withUsername("admin")
             .password(passwordEncoder().encode("admin"))
             .roles("ADMIN")
             .build());
 
-        // Agregar un usuario "user" con contraseña "user" y rol "USER"
+       
         userDetailsManager.createUser(User.withUsername("user")
             .password(passwordEncoder().encode("user"))
             .roles("USER")
@@ -47,16 +47,16 @@ public class WebSecurityConfigurerAdapter {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable() // Desactiva CSRF para simplificar el ejemplo
+            .csrf().disable() 
             .authorizeHttpRequests(authorize -> authorize
-                // Rutas accesibles solo para administradores (usuarios con el rol "ADMIN")
+               
                 .requestMatchers("/futbolistas/**").hasRole("ADMIN")
-                // Rutas accesibles para usuarios con el rol "USER"
+               
                 .requestMatchers("/usuarios/**").hasRole("USER")
-                // Otras rutas permitidas para todos los usuarios autenticados
+              
                 .anyRequest().authenticated()
             )
-            .httpBasic() // Autenticación HTTP básica
+            .httpBasic() 
             .and()
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

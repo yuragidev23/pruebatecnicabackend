@@ -1,6 +1,6 @@
 package com.pruebatec.demo.services;
 
-import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -25,7 +25,6 @@ public class FutbolistasServices {
 	public FutbolistaDTO obtenerFutbolistaPorId(Long id) {
 		Futbolistas futbolista = futbolistaRepository.findById(id).orElse(null);
         if (futbolista != null) {
-            // Transforma el objeto Futbolistas a FutbolistaDTO
             return new FutbolistaDTO(futbolista);
         } else {
             return null;

@@ -45,12 +45,10 @@ public class FutbolistasController {
 	
 //	@GetMapping("/all")
 //    public ResponseEntity<List<FutbolistaDTO>> obtenerTodosLosFutbolistas() {`
-//        List<Futbolistas> futbolistas = futbolistasServices.obtenerFutbolistas();
-//        // Transforma la lista de Futbolistas a una lista de FutbolistaDTO usando streams
+//        List<Futbolistas> futbolistas = futbolistasServices.obtenerFutbolistas();  
 //        List<FutbolistaDTO> futbolistasDTO = futbolistas.stream()
 //                .map(FutbolistaDTO::new)
 //                .collect(Collectors.toList());
-//        // Retorna la lista de DTOs
 //        return ResponseEntity.ok(futbolistasDTO);
 //    }
 

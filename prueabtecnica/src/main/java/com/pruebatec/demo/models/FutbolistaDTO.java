@@ -6,21 +6,23 @@ public class FutbolistaDTO {
     private String apellidos;
     private java.util.Date fechanaci;
     private String caracteristicas;
-    private String posicionJugador; // Solo el nombre de la posición
-
-    // Constructor vacío
+    private String posicionJugador; 
+   
     public FutbolistaDTO() {}
 
-    // Constructor para mapear los datos
+ 
     public FutbolistaDTO(Futbolistas futbolista) {
         this.idfutbolista = futbolista.getIdfutbolista();
         this.nombres = futbolista.getNombres();
         this.apellidos = futbolista.getApellidos();
         this.fechanaci = futbolista.getFechanaci();
         this.caracteristicas = futbolista.getCaracteristicas();
-        // Mapeamos el nombre de la posición
+       
         this.posicionJugador = futbolista.getPosicion().getPosicionjugador();
     }
+    
+    
+    // Getters y setters
 
 	public Long getIdfutbolista() {
 		return idfutbolista;
@@ -70,7 +72,7 @@ public class FutbolistaDTO {
 		this.posicionJugador = posicionJugador;
 	}
 
-    // Getters y setters
+    
     
 }
 
